@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="tests" parallel="methods" thread-count="5">
+    <test name="tests">
+        <classes>
+            <class name="com.qaprosoft.seleniumtask.GmailTests"/>
+            <class name="com.qaprosoft.seleniumtask.EbayTests"/>
+            <class name="com.qaprosoft.seleniumtask.MLBTests"/>
+        </classes>
+    </test>
+</suite>
