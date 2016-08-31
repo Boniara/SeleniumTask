@@ -49,7 +49,7 @@ public class DriverFactory {
 
     private static WebDriver getDriver(Capabilities capabilities) {
         try {
-            driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
+            driver = new RemoteWebDriver(new URL(ConfigUtil.getProperty("selenium_host")), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
