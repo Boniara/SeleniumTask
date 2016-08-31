@@ -21,7 +21,7 @@ public class TextLabel {
     }
 
     public String getText() {
-        LOG.debug("Get value " + webElement.getText() + " from text field " + textFieldName);
+        LOG.debug("Get value " + webElement.getText() + " from text field '" + textFieldName + "'");
         return webElement.getText();
     }
 
