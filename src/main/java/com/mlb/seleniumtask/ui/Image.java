@@ -22,8 +22,6 @@ public class Image {
 
     public boolean isDisplayed() {
         LOG.debug("Image '" + imageName + "' is present");
-        if(webElement.isEnabled() && webElement.isDisplayed())
-            return true;
-        return false;
+        return (webElement.isEnabled() && webElement.isDisplayed());
     }
 }
