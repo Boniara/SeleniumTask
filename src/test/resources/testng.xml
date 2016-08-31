@@ -3,9 +3,9 @@
 <suite name="tests" parallel="methods" thread-count="5">
     <test name="tests">
         <classes>
-            <class name="com.qaprosoft.seleniumtask.GmailTests"/>
-            <class name="com.qaprosoft.seleniumtask.EbayTests"/>
-            <class name="com.qaprosoft.seleniumtask.MLBTests"/>
+            <class name="com.mlb.seleniumtask.GmailTests"/>
+            <class name="com.mlb.seleniumtask.EbayTests"/>
+            <class name="com.mlb.seleniumtask.MLBTests"/>
         </classes>
     </test>
 </suite>
