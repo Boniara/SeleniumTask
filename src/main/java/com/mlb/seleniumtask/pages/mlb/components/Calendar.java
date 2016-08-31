@@ -37,6 +37,7 @@ public class Calendar extends BasePage {
         return PageFactory.initElements(getDriver(), Games.class);
     }
 
+    @SuppressWarnings("deprecation")
     private Integer getDay(Date date) {
         Integer day = date.getDate();
         Integer month = date.getMonth() - 1;

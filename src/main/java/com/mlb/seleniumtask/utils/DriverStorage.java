@@ -13,7 +13,7 @@ public class DriverStorage {
     private volatile static DriverStorage storage;
 
     private DriverStorage() {
-        this.driverMap = new ConcurrentHashMap();
+        this.driverMap = new ConcurrentHashMap<Long, WebDriver>();
     }
 
     public void put(Long idThread, WebDriver driver) {

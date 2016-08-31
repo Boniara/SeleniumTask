@@ -14,6 +14,9 @@ import java.util.Date;
 @Listeners(TestListener.class)
 public class MLBTests extends BaseTest {
 
+    private final String team1 = "Mets";
+    private final String team2 = "Cardinals";
+
     @Test
     public void checkPitchesNumber() {
         MLBHomePage mlbHomePage = PageFactory.initElements(getDriver(), MLBHomePage.class);
@@ -21,11 +24,11 @@ public class MLBTests extends BaseTest {
         ScoreboardPage scoreboardPage = mlbHomePage.clickScoreboard();
         Calendar calendar = scoreboardPage.clickCalendar();
         Games games = calendar.clickDate(new Date(2016, 8, 25));
-        BoxScorePage boxScorePage = games.clickBoxScoreByTeams("Mets", "Cardinals");
+        BoxScorePage boxScorePage = games.clickBoxScoreByTeams(team1, team2);
         GameDayPage gameDayPage = boxScorePage.clickGameDay();
         gameDayPage.printCurrentPitcher();
-        gameDayPage.printBatters();
-        gameDayPage.printCordinalsBatters();
+        gameDayPage.printBatters(team1);
+        gameDayPage.printBatters(team2);
         Assert.assertEquals(gameDayPage.getPitchBall(), gameDayPage.getPitchBallInGraphic(), "The number of pitches " +
                 "thrown to the last batter to the number of pitches that show up in the Gameday Batter graphic " +
                 "are not equals");

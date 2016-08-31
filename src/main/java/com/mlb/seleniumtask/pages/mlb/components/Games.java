@@ -48,10 +48,8 @@ public class Games extends BasePage {
             if(currentBoxScoreButton != null)
                 return currentBoxScoreButton;
         }
-        if(currentBoxScoreButton == null)
-            throw new BoxScoreNotFoundException("box score for teams " + homeTeam + " - " + awayTeam + " not found." +
-                    "Please check your entries");
-        return currentBoxScoreButton;
+        throw new BoxScoreNotFoundException("box score for teams " + homeTeam + " - " + awayTeam + " not found." +
+                "Please check your entries");
     }
 
     private String getInnerText(WebElement webElement) {

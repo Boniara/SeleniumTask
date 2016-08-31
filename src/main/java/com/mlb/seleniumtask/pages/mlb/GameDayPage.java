@@ -1,8 +1,8 @@
 package com.mlb.seleniumtask.pages.mlb;
 
 import com.mlb.seleniumtask.pages.BasePage;
-import com.mlb.seleniumtask.ui.Button;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,27 +25,15 @@ public class GameDayPage extends BasePage {
     @FindBy(xpath = "//tr[contains(@class, 'bat-order')]//a")
     private List<WebElement> batterList;
 
-    @FindBy(xpath = "//ul[contains(@class, 'tab-bar')]//a[text()='Cardinals']")
-    private WebElement cardinalsBatterListButton;
-
-    @FindBy(xpath = "//ul[contains(@class, 'tab-bar')]//a[text()='Mets']")
-    private WebElement metsBatterListButton;
 
     public void printCurrentPitcher() {
         LOG.info("CURRENT PITCHER: " + currentPitcher.getText());
     }
 
-    public void printBatters() {
-        Button metsBattersButton = new Button(metsBatterListButton, "mets batters");
-        metsBattersButton.click();
-        for(WebElement batter: batterList) {
-            LOG.info("BATTER: " + batter.getAttribute("innerText"));
-        }
-    }
-
-    public void printCordinalsBatters() {
-        Button cardinalsBattersButton = new Button(cardinalsBatterListButton, "cardinals batters");
-        cardinalsBattersButton.click();
+    public void printBatters(String team) {
+        WebElement teamElement = getDriver().findElement(By.xpath("//ul[contains(@class, 'tab-bar')]" +
+                "//a[text()='" + team + "']"));
+        teamElement.click();
         for(WebElement batter: batterList) {
             LOG.info("BATTER: " + batter.getAttribute("innerText"));
         }

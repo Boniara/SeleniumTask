@@ -2,7 +2,6 @@ package com.mlb.seleniumtask.pages.mlb;
 
 import com.mlb.seleniumtask.pages.BasePage;
 import com.mlb.seleniumtask.ui.Link;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class BoxScorePage extends BasePage {
-
-    private static final Logger LOG = Logger.getLogger(BoxScorePage.class);
 
     @FindBy(xpath = "//tr[@class='bat-order-odd']/td/a")
     private List<WebElement> batters;
