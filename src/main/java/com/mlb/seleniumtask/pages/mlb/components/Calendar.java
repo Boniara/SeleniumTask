@@ -53,12 +53,12 @@ public class Calendar extends BasePage {
             }
         }
         if(month > Integer.parseInt(currentMonth.getAttribute("data-month"))) {
-            Button prevMonthBtn = new Button(prevMonthButton, "prev month button");
+            Button prevMonthBtn = new Button(prevMonthButton, "prev month");
             while(month > Integer.parseInt(currentMonth.getAttribute("data-month"))) {
                 prevMonthBtn.click();
             }
         } else {
-            Button nextMonthBtn = new Button(nextMonthButton, "next month button");
+            Button nextMonthBtn = new Button(nextMonthButton, "next month");
             while(month < Integer.parseInt(currentMonth.getAttribute("data-month"))) {
                 nextMonthBtn.click();
             }

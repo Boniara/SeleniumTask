@@ -26,7 +26,7 @@ public class TextLabel {
     }
 
     public String getInnerText() {
-        LOG.debug("Get value " + webElement.getAttribute("innerText") + " from text field " + textFieldName);
+        LOG.debug("Get value " + webElement.getAttribute("innerText") + " from text field '" + textFieldName + "'");
         return webElement.getAttribute("innerText");
     }
 }

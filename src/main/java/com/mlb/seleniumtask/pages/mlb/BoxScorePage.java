@@ -2,7 +2,6 @@ package com.mlb.seleniumtask.pages.mlb;
 
 import com.mlb.seleniumtask.pages.BasePage;
 import com.mlb.seleniumtask.ui.Link;
-import com.mlb.seleniumtask.ui.TextLabel;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,19 +31,5 @@ public class BoxScorePage extends BasePage {
         Link gameDayLink = new Link(gameDay, "game day");
         gameDayLink.click();
         return PageFactory.initElements(getDriver(), GameDayPage.class);
-    }
-
-    public void printBatters() {
-        TextLabel batterTextLabel;
-        for(WebElement batter: batters) {
-            batterTextLabel = new TextLabel(batter, "batter");
-            LOG.info("BETTER: " + batterTextLabel.getInnerText());
-        }
-    }
-
-    public void printPitchers() {
-        for(WebElement pitcher: pitchers) {
-            LOG.info("PITCHER: " + pitcher.getText());
-        }
     }
 }
