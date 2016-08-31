@@ -44,7 +44,7 @@ public class GameDayPage extends BasePage {
     }
 
     public void printCordinalsBatters() {
-        Button cardinalsBattersButton = new Button(cardinalsBatterListButton, "mets batters");
+        Button cardinalsBattersButton = new Button(cardinalsBatterListButton, "cardinals batters");
         cardinalsBattersButton.click();
         for(WebElement batter: batterList) {
             LOG.info("BATTER: " + batter.getAttribute("innerText"));
