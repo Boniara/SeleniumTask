@@ -1,5 +1,6 @@
 package com.mlb.seleniumtask.utils;
 
+import com.mlb.seleniumtask.exceptions.PropertyNotFoundException;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -9,26 +10,16 @@ import java.util.Properties;
 public class ConfigUtil {
 
     private static final Logger LOG = Logger.getLogger(ConfigUtil.class);
-    private static InputStream inputStream;
 
     private static Properties properties = new Properties();
     private static final String PROPERTIES_FILE = "config.properties";
 
     static{
-        inputStream = ConfigUtil.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE);
+        InputStream inputStream = ConfigUtil.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE);
         try {
             properties.load(inputStream);
         } catch (IOException e) {
             LOG.error(e);
-        }
-    }
-
-    public static String getProperty(String key) {
-        String property = (System.getProperty(key) != null) ? System.getProperty(key) : null;
-        try {
-            synchronized(properties) {
-                property = (property == null)? properties.getProperty(key) : null;
-            }
         } finally {
             try {
                 inputStream.close();
@@ -36,6 +27,16 @@ public class ConfigUtil {
                 LOG.error(e);
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    public static String getProperty(String key) {
+        String property = (System.getProperty(key) != null) ? System.getProperty(key) : properties.getProperty(key);
+        if(property == null) {
+            LOG.error("Property " + key + " not found neither in the System Properties nor " +
+                    "in project configuration file");
+            throw new PropertyNotFoundException("Property " + key + " not found neither in the System Properties nor " +
+                    "in project configuration file");
         }
         return property;
     }
