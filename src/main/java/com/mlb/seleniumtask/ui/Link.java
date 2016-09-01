@@ -3,29 +3,24 @@ package com.mlb.seleniumtask.ui;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
-public class Link {
+public class Link extends BaseUI {
 
     private static final Logger LOG = Logger.getLogger(Link.class);
 
-    private WebElement webElement;
-    private String linkName;
-
     public Link(WebElement webElement){
-        this.webElement = webElement;
-        this.linkName = webElement.getTagName();
+        super(webElement);
     }
 
     public Link(WebElement webElement, String linkName){
-        this.webElement = webElement;
-        this.linkName = linkName;
+        super(webElement, linkName);
     }
 
     public void click() {
         if(webElement.isEnabled() && webElement.isDisplayed()) {
-            LOG.debug("Click '" + linkName + "' link");
+            LOG.debug("Click '" + webElementName + "' link");
             webElement.click();
         } else {
-            LOG.error("Link '" + linkName + "' not clicks");
+            LOG.error("Link '" + webElementName + "' not clicks");
         }
     }
 }

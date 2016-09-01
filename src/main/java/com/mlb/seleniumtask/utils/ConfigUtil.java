@@ -22,7 +22,8 @@ public class ConfigUtil {
             LOG.error(e);
         } finally {
             try {
-                inputStream.close();
+                if(inputStream != null)
+                    inputStream.close();
             } catch (IOException e) {
                 LOG.error(e);
                 throw new RuntimeException(e);
