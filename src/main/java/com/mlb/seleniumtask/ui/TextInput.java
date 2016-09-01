@@ -21,10 +21,11 @@ public class TextInput {
     }
 
     public void sendKeys(String message) {
-        synchronized (this) {
+        if (webElement.isEnabled() && webElement.isDisplayed()) {
+            webElement.sendKeys(message);
             LOG.debug("Send text: '" + message + "' to text input field " + inputName);
-            if (webElement.isEnabled() && webElement.isDisplayed())
-                webElement.sendKeys(message);
+        } else {
+            LOG.error("Text '" + message + "' to text input field " + inputName + " not sends");
         }
     }
 

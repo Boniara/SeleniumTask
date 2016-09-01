@@ -21,8 +21,11 @@ public class Link {
     }
 
     public void click() {
-        LOG.debug("Click '" + linkName + "' link");
-        if(webElement.isEnabled() && webElement.isDisplayed())
+        if(webElement.isEnabled() && webElement.isDisplayed()) {
+            LOG.debug("Click '" + linkName + "' link");
             webElement.click();
+        } else {
+            LOG.error("Link '" + linkName + "' not clicks");
+        }
     }
 }

@@ -21,8 +21,11 @@ public class Button {
     }
 
     public void click() {
-        LOG.debug("Click '" + buttonName + "' button");
-        if (webElement.isEnabled() && webElement.isDisplayed())
+        if (webElement.isEnabled() && webElement.isDisplayed()) {
+            LOG.debug("Click '" + buttonName + "' button");
             webElement.click();
+        } else {
+            LOG.error("Button '" + buttonName + "' not clicks");
+        }
     }
 }
