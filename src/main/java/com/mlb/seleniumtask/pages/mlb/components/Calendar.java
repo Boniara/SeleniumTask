@@ -42,25 +42,25 @@ public class Calendar extends BasePage {
         Integer day = date.getDate();
         Integer month = date.getMonth() - 1;
         Integer year = date.getYear();
-        if(year > Integer.parseInt(currentYear.getText())) {
+        if(year < Integer.parseInt(currentYear.getText())) {
             Button prevMonthBtn = new Button(prevMonthButton, "prev month");
-            while(year > Integer.parseInt(currentYear.getText())) {
+            while(year < Integer.parseInt(currentYear.getText())) {
                 prevMonthBtn.click();
             }
         } else {
             Button nextMonthBtn = new Button(nextMonthButton, "next month");
-            while(year < Integer.parseInt(currentYear.getText())) {
+            while(year > Integer.parseInt(currentYear.getText())) {
                 nextMonthBtn.click();
             }
         }
-        if(month > Integer.parseInt(currentMonth.getAttribute("data-month"))) {
+        if(month < Integer.parseInt(currentMonth.getAttribute("data-month"))) {
             Button prevMonthBtn = new Button(prevMonthButton, "prev month");
             while(month > Integer.parseInt(currentMonth.getAttribute("data-month"))) {
                 prevMonthBtn.click();
             }
         } else {
             Button nextMonthBtn = new Button(nextMonthButton, "next month");
-            while(month < Integer.parseInt(currentMonth.getAttribute("data-month"))) {
+            while(month > Integer.parseInt(currentMonth.getAttribute("data-month"))) {
                 nextMonthBtn.click();
             }
         }
