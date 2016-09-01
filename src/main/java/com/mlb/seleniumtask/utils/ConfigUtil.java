@@ -2,7 +2,6 @@ package com.mlb.seleniumtask.utils;
 
 import com.mlb.seleniumtask.exceptions.PropertyNotFoundException;
 import org.apache.log4j.Logger;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -11,10 +10,11 @@ public class ConfigUtil {
 
     private static final Logger LOG = Logger.getLogger(ConfigUtil.class);
 
-    private static Properties properties = new Properties();
+    private static Properties properties;
     private static final String PROPERTIES_FILE = "config.properties";
 
     static{
+        properties = new Properties();
         InputStream inputStream = ConfigUtil.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE);
         try {
             properties.load(inputStream);
